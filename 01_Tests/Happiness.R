@@ -4,7 +4,7 @@ library(data.table) # for data loading
 library(viridis)    # for our colors
 
 # Read data
-hap <- fread("https://www.kaggle.com/unsdsn/world-happiness/downloads/2017.csv")
+hap <- fread("2017.csv")
 
 # take a look at the data
 glimpse(hap) 
