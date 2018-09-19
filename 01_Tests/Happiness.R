@@ -1,11 +1,10 @@
-# libraries
-
-library(dplyr) # you can choose to load dplyr only
+# Load libraries
+library(dplyr)      # you can choose to load dplyr only
 library(data.table) # for data loading
-library(viridis) # for our colors
+library(viridis)    # for our colors
 
 # Read data
-hap <- fread("/Users/j.schwarz/Downloads/2017.csv")
+hap <- fread("https://www.kaggle.com/unsdsn/world-happiness/downloads/2017.csv")
 
 # take a look at the data
 glimpse(hap) 
@@ -16,7 +15,7 @@ glimpse(hap)
 #Some of these country names (USA and UK) do not match with the map_data(‘world’) dataset.
 #Produce an output showing all the region names:
   #Var. 1 -> unique(map_data("world")$region)
-  #Var. 2 -> map_data('world') %>% group_by(region) %>% summarise() %>% print(n = Inf)
+  #Var. 2 -> map_data("world") %>% group_by(region) %>% summarise() %>% print(n = Inf)
 
 hap <- hap %>% mutate(Country = if_else(Country == "United States", 'USA', 
                                 if_else(Country == "United Kingdom", 'UK', 
@@ -37,9 +36,3 @@ ggplot(data = hf, aes(x = long, y = lat, group = group)) +
        scale_fill_viridis(option = 'plasma')+ 
        labs(title = "Countries With Highest Life Expectancy", subtitle = "People living in Scandinavian Countries Live Longest", caption = "Source:World Happiness Report 2016") + 
        theme_bw()
-
-
-
-
-
-
