@@ -36,3 +36,6 @@ ggplot(data = hf, aes(x = long, y = lat, group = group)) +
        scale_fill_viridis(option = 'plasma')+ 
        labs(title = "Countries With Highest Life Expectancy", subtitle = "People living in Scandinavian Countries Live Longest", caption = "Source:World Happiness Report 2016") + 
        theme_bw()
+
+# Save plot
+ggsave("happiness_plot.png") # furhter parameters: width = ..., height = ..., dpi = ...)
